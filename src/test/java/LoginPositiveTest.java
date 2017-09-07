@@ -13,28 +13,26 @@ public class LoginPositiveTest {
     WebDriver driver;
     String baseURL;
 
-    public LoginPositiveTest() {
-    }
 
     @BeforeClass
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "chromedriver");
-        this.driver = new ChromeDriver();
-        this.driver.manage().timeouts().implicitlyWait(10L, TimeUnit.SECONDS);
-        this.baseURL = "https://www.co.dakota.mn.us/libraries";
+        driver = new ChromeDriver();
+        driver.manage().timeouts().implicitlyWait(10L, TimeUnit.SECONDS);
+        baseURL = "https://www.co.dakota.mn.us/libraries";
     }
 
     @AfterClass
     public void tearDown() {
-        this.driver.quit();
+       driver.quit();
     }
 
     @Test
     public void login() {
-        this.driver.get(this.baseURL);
-        HomePage login = new HomePage(this.driver);
-        login.typeCardNumber();
-        login.typePinNumber();
+        driver.get(baseURL);
+        HomePage login = new HomePage(driver);
+        login.typeCardNumber("22087009625741");
+        login.typePinNumber("5972");
         login.clickSubmitButton();
     }
 }

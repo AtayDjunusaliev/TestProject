@@ -18,14 +18,15 @@ public class HomePage {
     public HomePage(WebDriver driver) {
 
         this.driver =driver;
+
     }
 
 
-    public void typeCardNumber() {
-        driver.findElement(CardNumberField).sendKeys("22087009625741");
+    public void typeCardNumber(String CardNumber) {
+        driver.findElement(CardNumberField).sendKeys(CardNumber);
     }
-    public void typePinNumber()    {
-        driver.findElement(PinField).sendKeys("5972");
+    public void typePinNumber(String Pin)    {
+        driver.findElement(PinField).sendKeys(Pin);
     }
 
     public void clickSubmitButton(){
